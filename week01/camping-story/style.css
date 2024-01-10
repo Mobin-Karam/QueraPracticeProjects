@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  padding: 0 50px;
+}
+
+ul {
+  list-style: none;
+}
+
+.tours {
+  height: 100vh;
+  padding: 40px 0;
+  background-color: #f7f7f7f7;
+}
+
+.heading {
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 35px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #0cdb58, #0e7145);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+}
+
+.card__info li {
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.card__info li:not(:last-child) {
+  border-bottom: 1px solid #dedede;
+}
+
+.image {
+  height: 230px;
+  width: 100%;
+  background-size: cover;
+  background-blend-mode: screen;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.forest-image {
+  background-image: linear-gradient(to right bottom, #0cdb58, #0e7145),
+    url(./assets/nat-2.jpg);
+}
+
+.snow-image {
+  background-image: linear-gradient(to right bottom, #2998ff, #5643fa),
+    url(./assets/nat-3.jpg);
+}
+
+.sea-image {
+  background-image: linear-gradient(to right bottom, #ffb900, #ff7730),
+    url(./assets/nat-1.jpg);
+}
+
+.forest,
+.snow,
+.sea {
+  transition: all 0.3s;
+}
+
+.forest:hover {
+  background-image: linear-gradient(to right bottom, #0cdb58, #0e7145);
+  color: white;
+}
+
+.sea:hover {
+  background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
+  color: white;
+}
+
+.snow:hover {
+  background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
+  color: white;
+}
+
+.tours__cards {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+
+  /* TODO: your code here... */
+}
+
+.tours__cards--card {
+  width: 30%;
+  height: 550px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  color: #777777;
+  background-color: white;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+
+  /* TODO: your code here... */
+}
+
+/* ----------------------------------SHOP------------------------------------- */
+.shop {
+  min-height: 100vh;
+  padding: 40px 0;
+  background-color: #f7f7f7f7;
+}
+
+.shop__products {
+  filter: brightness(0.6);
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.shop__products:hover {
+  filter: brightness(1);
+}
+
+.shop__products--wrapper {
+  padding: 20px;
+
+  /* TODO: your code here... */
+}
