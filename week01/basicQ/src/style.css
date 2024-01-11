@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Yekan";
+  src: url("../assets/B_Yekan/Yekan.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: -10px;
+  width: 101%;
+  height: 103%;
+  background-image: url("../assets/Images/main.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.button {
+  width: 300px;
+  height: 100px;
+  border: none;
+  border-radius: 10px;
+  color: rgb(245, 245, 220);
+  background-color: rgb(94, 150, 255);
+  margin-top: 50px;
+  font-family: "Yekan";
+  font-weight: bold;
+  font-size: 24px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: rgba(75, 93, 174, 0.37) 7px 5px 52px -4px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: rgb(77, 119, 197);
+  box-shadow: 7px 5px 52px -4px rgba(31, 44, 99, 0.37);
+  -webkit-box-shadow: 7px 5px 52px -4px rgba(31, 44, 99, 0.37);
+  -moz-box-shadow: 7px 5px 52px -4px rgba(31, 44, 99, 0.37);
+}
+
+.main-content {
+  position: relative;
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 7px 5px 52px -4px rgba(186, 186, 186, 0.43);
+  -webkit-box-shadow: 7px 5px 52px -4px rgba(186, 186, 186, 0.43);
+  -moz-box-shadow: 7px 5px 52px -4px rgba(186, 186, 186, 0.43);
+}
+
+.welcome {
+  font-family: "Yekan";
+  font-size: 32px;
+  font-weight: bold;
+  color: rgb(10, 27, 83);
+}
+
+.paragraph {
+  font-family: "Yekan";
+  font-size: 24px;
+  color: rgb(54, 58, 74);
+}
+
+footer {
+  margin-top: 80px;
+}
+.quera-logo {
+  width: 150px;
+}
+
+.close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 30px;
+  display: none;
+}
+
+.link {
+  font-size: 18px;
+  color: rgb(55, 113, 114);
+  cursor: pointer;
+}
+.link:hover {
+  color: rgb(98, 143, 144);
+}
