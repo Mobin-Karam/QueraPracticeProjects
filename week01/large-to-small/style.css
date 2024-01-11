@@ -66,7 +66,7 @@
     );
   }
 
-  .card * {
+  .card p {
     font-size: 50px;
   }
 
@@ -76,7 +76,7 @@
 
   .heading__xl {
     font-size: 40px;
-    display: block;
+    display: inline-block;
   }
 }
 
@@ -93,7 +93,7 @@
     );
   }
 
-  .card * {
+  .card p {
     font-size: 30px;
   }
 
@@ -103,7 +103,7 @@
 
   .heading__lg {
     font-size: 30px;
-    display: block;
+    display: inline-block;
   }
 }
 
@@ -120,7 +120,7 @@
     );
   }
 
-  .card * {
+  .card p {
     font-size: 20px;
   }
 
@@ -134,7 +134,7 @@
 
   .heading__md {
     font-size: 20px;
-    display: block;
+    display: inline-block;
   }
 }
 
@@ -150,7 +150,7 @@
     );
   }
 
-  .card * {
+  .card p {
     font-size: 15px;
   }
 
@@ -168,6 +168,6 @@
 
   .heading__md {
     font-size: 10px;
-    display: block;
+    display: inline-block;
   }
 }
