@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "buy for dinner",
+        "description": "buy a bread for dinner",
+        "date": "2024-01-29T06:00:00Z"
+    },
+    {
+        "id": 2,
+        "title": "bootcamp meeting",
+        "description": "join bootcamp general meeting",
+        "date": "2024-02-16T18:30:00Z"
+    },
+    {
+        "id": 3,
+        "title": "bug fix",
+        "description": "fix a reported bug from a client",
+        "date": "2023-11-23T08:08:00Z"
+    },
+    {
+        "id": 4,
+        "title": "tickets",
+        "description": "book two tickets for Harry Potter and the Prisoner of Azkaban movie",
+        "date": "2024-05-01T12:50:00Z"
+    }
+]
