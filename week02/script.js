@@ -82,5 +82,6 @@ fName = "mohsen"; // initailazation
 // family.charAt(2)
 // console.log(family.trim())
 
-const fullName = "pouriya      babaali";
-console.log(fullName.replaceAll(" ", ""));
+// const fullName = "pouriya      babaali";
+// console.log(fullName.replaceAll(" ", ""));
+
