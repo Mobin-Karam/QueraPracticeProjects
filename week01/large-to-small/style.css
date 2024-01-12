@@ -50,3 +50,100 @@
 
 /* TODO: implement responsive design based on question... */
 /* your code here... */
+
+/* Resposive Design with MediaQueries */
+
+/* 1536px  */
+@media (max-width: 1536px) {
+  .container {
+    background-image: linear-gradient(
+      to left bottom,
+      rgb(29, 48, 77),
+      rgb(47, 95, 121),
+      rgb(79, 145, 159),
+      rgb(129, 196, 191),
+      rgb(193, 247, 220)
+    );
+  }
+
+  .heading__xl {
+    color: rgb(127, 255, 212);
+    font-size: 40px;
+    display: block;
+  }
+
+  .card {
+    font-size: 50px;
+  }
+}
+
+/* 1024px  */
+@media (max-width: 1024px) {
+  .container {
+    background-image: linear-gradient(
+      to left top,
+      rgb(29, 48, 77),
+      rgb(68, 49, 80),
+      rgb(97, 52, 72),
+      rgb(112, 61, 57),
+      rgb(112, 78, 46)
+    );
+  }
+
+  .heading__lg {
+    color: rgb(127, 255, 212);
+    display: block;
+    font-size: 30px;
+  }
+
+  .card {
+    font-size: 30px;
+  }
+}
+
+/* 768px  */
+@media (max-width: 768px) {
+  .container {
+    background-image: linear-gradient(
+      to right bottom,
+      rgb(57, 57, 58),
+      rgb(60, 49, 65),
+      rgb(74, 36, 59),
+      rgb(88, 16, 39),
+      rgb(90, 0, 1)
+    );
+  }
+
+  .heading__md {
+    color: rgb(127, 255, 212);
+    font-size: 20px;
+    display: block;
+  }
+
+  .card {
+    font-size: 20px;
+  }
+}
+
+/* 640px  */
+@media (max-width: 640px) {
+  .container {
+    background-image: linear-gradient(
+      rgb(101, 145, 87),
+      rgb(93, 156, 96),
+      rgb(81, 166, 108),
+      rgb(61, 177, 122),
+      rgb(9, 188, 138)
+    );
+  }
+
+  .card {
+    font-size: 15px;
+  }
+
+  .heading__sm {
+    font-size: 10px;
+    color: rgb(127, 255, 212);
+    display: block;
+  }
+}
