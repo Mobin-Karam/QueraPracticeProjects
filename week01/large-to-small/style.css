@@ -54,7 +54,7 @@
 /* Resposive Design with MediaQueries */
 
 /* 1536px  */
-@media only screen and (max-width: 1536px) {
+@media (max-width: 1536px) {
   .container {
     background-image: linear-gradient(
       to left bottom,
@@ -66,22 +66,19 @@
     );
   }
 
-  .card p {
-    font-size: 50px;
-  }
-
-  .heading__2xl {
-    display: none;
-  }
-
   .heading__xl {
+    color: rgb(127, 255, 212);
     font-size: 40px;
-    display: inline-block;
+    display: block;
+  }
+
+  .card {
+    font-size: 50px;
   }
 }
 
 /* 1024px  */
-@media only screen and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .container {
     background-image: linear-gradient(
       to left top,
@@ -93,22 +90,19 @@
     );
   }
 
-  .card p {
-    font-size: 30px;
-  }
-
-  .heading__xl {
-    display: none;
-  }
-
   .heading__lg {
+    color: rgb(127, 255, 212);
+    display: block;
     font-size: 30px;
-    display: inline-block;
+  }
+
+  .card {
+    font-size: 30px;
   }
 }
 
 /* 768px  */
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .container {
     background-image: linear-gradient(
       to right bottom,
@@ -120,26 +114,19 @@
     );
   }
 
-  .card p {
-    font-size: 20px;
-  }
-
-  .heading__xl {
-    display: none;
-  }
-
-  .heading__lg {
-    display: none;
-  }
-
   .heading__md {
+    color: rgb(127, 255, 212);
     font-size: 20px;
-    display: inline-block;
+    display: block;
+  }
+
+  .card {
+    font-size: 20px;
   }
 }
 
 /* 640px  */
-@media only screen and (max-width: 640px) {
+@media (max-width: 640px) {
   .container {
     background-image: linear-gradient(
       rgb(101, 145, 87),
@@ -150,24 +137,13 @@
     );
   }
 
-  .card p {
+  .card {
     font-size: 15px;
   }
 
-  .heading__xl {
-    display: none;
-  }
-
-  .heading__lg {
-    display: none;
-  }
-
-  .heading__md {
-    display: none;
-  }
-
-  .heading__md {
+  .heading__sm {
     font-size: 10px;
-    display: inline-block;
+    color: rgb(127, 255, 212);
+    display: block;
   }
 }
