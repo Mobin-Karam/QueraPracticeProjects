@@ -1,8 +1,10 @@
 // use this tasks to test your code
-const tasks = require('./data.json');
+import tasks from "./data.json";
 
-function reminder (data, currentDate) {
-   // YOUR CODE HERE
+function reminder(data, currentDate) {
+
 }
 
-module.exports = reminder
+reminder(tasks, currentDate);
+
+// module.exports = reminder;
