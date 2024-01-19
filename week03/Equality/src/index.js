@@ -14,4 +14,6 @@ function objectEquality (obj1, obj2) {
   }
 }
 
-module.exports = {arrayEquality, objectEquality}
+console.log(arrayEquality(),objectEquality())
+
+// module.exports = {arrayEquality, objectEquality}
