@@ -1,0 +1,38 @@
+{
+  "AUDI": [
+    {
+      "id": 1,
+      "model_number": "A51G324",
+      "price": 26000000
+    },
+    {
+      "id": 2,
+      "model_number": "A6F512",
+      "price": 35000000
+    }
+  ],
+  "BMW": [
+    {
+      "id": 8,
+      "model_number": "R754F",
+      "price": 18000000
+    },
+    {
+      "id": 9,
+      "model_number": "45T26",
+      "price": 44000000
+    },
+    {
+      "id": 10,
+      "model_number": "QT153",
+      "price": 80000000
+    }
+  ],
+  "TOYOTA": [
+    {
+      "id": 22,
+      "model_number": "H4562T",
+      "price": 31000000
+    }
+  ]
+}
