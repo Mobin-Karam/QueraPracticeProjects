@@ -1,10 +1,38 @@
-const arr = [
-  21, 4,4,4, 52, 65, 84657, 435, 75, 89, 7, 964, 2, 4634, 75, 33412, 123,
-];
+// Test Data
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu",
+};
 
-for (let x = 0; x < array.length; x++) {
-    const element = array[x];
-    
+function multiplyNumeric(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] === "number") {
+      obj[key] *= 2;
+    }
+  }
+}
+multiplyNumeric(menu);
+
+console.log(menu);
+
+let obj1 = { a: "mobin", b: "lok", d: "karam" };
+let obj2 = { a: "mobn", b: "lok", p: "kara" };
+
+function objEquality(obj1, obj2) {
+  let key1 = Object.keys(obj1);
+  let key2 = Object.keys(obj2);
+  let result;
+
+  if (key1.length === key2.length) {
+    for (let i of key1) {
+      result = obj1[i] === obj2[i];
+      console.log(obj1[i] === obj2[i]);
+    }
+    return result;
+  }
+
+  return false;
 }
 
-console.log(arr.indexOf(indexX));
+console.log(objEquality(obj1, obj2));
