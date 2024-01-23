@@ -73,15 +73,6 @@ function fizz_buzz(numbers) {
       if (numbers[0] === 3)
         (number1 = "fizz"), (number2 = "buzz"), (number3 = "fizzbuzz");
     }
-    // else if (numbers[0] % 5 === 0) {
-    //   if (numbers[0] === 3) number1 = "fizz";
-    //   else if (numbers[0] === 5) number1 = "buzz";
-    //   else if (numbers[0] === 15) number1 = "fizzbuzz";
-    // } else if (numbers[0] % 15 === 0) {
-    //   if (numbers[0] === 3) number1 = "fizz";
-    //   else if (numbers[0] === 5) number1 = "buzz";
-    //   else if (numbers[0] === 15) number1 = "fizzbuzz";
-    // }
     if (numbers[0]) return `${number1},${number2},${number3}`;
   }
 }
