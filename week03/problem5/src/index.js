@@ -1,17 +1,31 @@
-// let num = [24];
-let primes = [2, 3, 5, 7, 11];
-let result = [];
-
 function findPrimes(num) {
-  for (i = 0; i < primes.length; i++) {
-    if (num % primes[i] === 0) {
-      result.push( primes[i]);
+  // Save Result in this Array
+  let result = [];
+  // Check the number is Prime or not
+  const isPrime = (number) => {
+    // Check if number less than 2 remove it
+    if (number < 2) {
+      return false;
+    }
+    // Check number is't Prime
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+      if (number % i === 0) {
+        return false;
+      }
+    }
+    // Number is Prime
+    return true;
+  };
+  // Push that Num is Divisible to 
+  for (i = 2; i < num; i++) {
+    if (isPrime(i) && num % i === 0) {
+      result.push(i);
     }
   }
 
   return result;
 }
 
-console.log(findPrimes(100));
+// console.log(findPrimes(24));
 
-// module.exports = findPrimes;
+module.exports = findPrimes;
