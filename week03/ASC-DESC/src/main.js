@@ -1,17 +1,20 @@
 function MinToMax(arr) {
-  // YOUR CODE HERE
+  return arr.slice().sort((a, b) => a - b);
 }
 
 function MaxToMin(arr) {
-  // YOUR CODE HERE
+  return arr.slice().sort((a, b) => b - a);
 }
-
 
 function ASCisNotDESC(data) {
   const minToMaxSorted = MinToMax(data);
   const maxToMinSorted = MaxToMin(minToMaxSorted);
 
-  return (minToMaxSorted?.length && maxToMinSorted?.length) && JSON.stringify(minToMaxSorted) !== JSON.stringify(maxToMinSorted);
+  return (
+    minToMaxSorted?.length &&
+    maxToMinSorted?.length &&
+    JSON.stringify(minToMaxSorted) !== JSON.stringify(maxToMinSorted)
+  );
 }
 
 // expect return of ASCisNotDESC function to be True
@@ -19,7 +22,7 @@ function ASCisNotDESC(data) {
 // use this data to test your function
 const unsortedArray = [5, 32, 1, 3, 4, 2, 9, 6, 50, 1, 8, 5, 100];
 
-console.log(ASCisNotDESC(unsortedArray));
+// console.log(ASCisNotDESC(unsortedArray));
 
 
-module.exports = { MinToMax, MaxToMin, ASCisNotDESC }
+module.exports = { MinToMax, MaxToMin, ASCisNotDESC };
