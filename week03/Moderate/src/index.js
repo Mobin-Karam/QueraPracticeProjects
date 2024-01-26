@@ -15,18 +15,15 @@ function moderate(arr1, arr2, arr3) {
   // Median
   if (totalArray.length % 2 === 0) {
     totalArray.sort((a, b) => a - b);
-    middle = totalArray.slice(
-      totalArray.length / 2 - 1,
-      totalArray.length / 2 + 1
-    );
-    median = (middle[0] + middle[1]) / 2;
+    middle = Math.floor(totalArray.length / 2);
+    median = (totalArray[middle] + totalArray[middle - 1]) / 2;
   } else {
     totalArray.sort((a, b) => a - b);
-    middle = Math.floor(totalArray.length / 2);
-    median = totalArray[middle];
+    median = Math.floor(totalArray.length / 2);
   }
 
   // Mode
+  totalArray.sort((a, b) => b - a);
   let frequency = {};
   let maxFrequency = 0;
 
@@ -45,6 +42,6 @@ function moderate(arr1, arr2, arr3) {
   };
 }
 
-// console.log(moderate([1, 8, 3], [9, 4, 1, 2, 3], [1]));
+console.log(moderate([6], [4], []));
 
-module.exports = moderate;
+// module.exports = moderate;
