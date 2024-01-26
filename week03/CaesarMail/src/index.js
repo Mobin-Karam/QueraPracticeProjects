@@ -1,6 +1,5 @@
-
 // Change Numbers to Roman Numbers
-function toRoman(num) {
+function toRoman(number) {
   // List of Roman Numbers
   let romanToNum = {
     M: 1000,
@@ -18,19 +17,17 @@ function toRoman(num) {
     I: 1,
   };
   let roman = "";
-  for (let key in romanToNum) {
-    while (num >= romanToNum[key]) {
-      // add Roman num
-      roman += key;
-      // increase Number that we give to function for measure it again
-      num -= romanToNum[key];
+  if (number > 0 && number <= 3000) {
+    for (let name in romanToNum) {
+      while (number >= romanToNum[name]) {
+        // add Roman num
+        roman += name;
+        // increase Number that we give to function for measure it again
+        number -= romanToNum[name];
+      }
     }
   }
   return roman;
 }
-
-// console.log(toRoman(1495));
-
-// console.log(1495);
-
-module.exports = toRoamn;
+// console.log(toRoman(3000));
+module.exports = toRoman;

@@ -41,8 +41,17 @@
 
 // console.log(moderate([6], [4], []));
 function moderate(arr1, arr2, arr3) {
-  // Filter out non-numeric elements//
-  let numbers = arr1.concat(arr2, arr3);
+  // Filter out non-numeric elements and concatenate arrays
+  let numbers = [...arr1, ...arr2, ...arr3];
+
+  // If there's only one number, return it as the average, median, and mode
+  // if (numbers.length === 1) {
+  //   return {
+  //     Average: numbers[0],
+  //     Median: numbers[0],
+  //     Mode: numbers[0],
+  //   };
+  // }
 
   // Calculate the average
   const sum = numbers.reduce((a, b) => a + b, 0);
@@ -51,30 +60,34 @@ function moderate(arr1, arr2, arr3) {
   // Calculate the median
   let sortNumbers = numbers.slice().sort((a, b) => a - b);
   const middle = Math.floor(sortNumbers.length / 2);
-  const median =
-    sortNumbers.length % 2 === 0
-      ? (sortNumbers[middle - 1] + sortNumbers[middle]) / 2
-      : sortNumbers[middle];
+  const median = !(sortNumbers.length % 2 === 0)
+    ? sortNumbers[middle]
+    : (sortNumbers[middle - 1] + sortNumbers[middle]) / 2;
 
   // Calculate the mode
   const frequency = {};
   let maxFrequency = 0;
-  let mode = null;
+  let modes = [];
 
   for (const number of numbers) {
     frequency[number] = (frequency[number] || 0) + 1;
     if (frequency[number] > maxFrequency) {
       maxFrequency = frequency[number];
-      mode = number;
+      modes = [number];
+    } else if (frequency[number] === maxFrequency) {
+      modes.push(number);
     }
   }
 
+  let mode = Math.max(...modes);
+
   return {
-    average: avg,
-    median: median,
-    mode: mode,
+    Average: Number(avg.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]),
+    Median: median,
+    Mode: mode,
   };
 }
-console.log(moderate([6], [4], []));
 
-// module.exports = moderate;
+// console.log(moderate([5, 8, 10], [], []));
+
+module.exports = moderate;
