@@ -1,57 +1,93 @@
 // define a function that takes three sets of numbers as parameters
+// function moderate(arr1, arr2, arr3) {
+//   let totalArray = arr1.concat(arr2, arr3);
+//   let average = 0;
+//   let median = 0;
+//   let mode = 0;
+//   let middle = 0;
+//   // Median
+//   if (totalArray.length % 2 === 0) {
+//     totalArray.sort((a, b) => a - b);
+//     middle = Math.floor(totalArray.length / 2);
+//     median = (totalArray[middle] + totalArray[middle - 1]) / 2;
+//   } else {
+//     totalArray.sort((a, b) => a - b);
+//     median = Math.floor(totalArray.length / 2);
+//   }
+//   // Average
+//   for (let num of totalArray) {
+//     average += num;
+//   }
+//   average = Number((average / totalArray.length).toFixed(2));
+//   // Mode
+//   totalArray.sort((a, b) => b - a);
+//   let frequency = {};
+//   let maxFrequency = 0;
+
+//   for (const number of totalArray) {
+//     frequency[number] = (frequency[number] || 0) + 1;
+//     if (frequency[number] > maxFrequency) {
+//       maxFrequency = frequency[number];
+//       mode = number;
+//     }
+//   }
+
+//   return {
+//     average: average,
+//     median: median,
+//     mode: mode,
+//   };
+// }
+
+// console.log(moderate([6], [4], []));
 function moderate(arr1, arr2, arr3) {
-  // concatenate the three sets of numbers and sort them in ascending order
-  let arr = arr1.concat(arr2, arr3).sort((a, b) => a - b);
-  // initialize the variables for average, median and mode
-  let avg = 0, med = 0, mode = 0;
-  // calculate the sum of the numbers
-  let sum = arr.reduce((a, b) => a + b, 0);
-  // calculate the average by dividing the sum by the total number
-  avg = sum / arr.length;
-  // find the middle index of the sorted array
-  let mid = Math.floor(arr.length / 2);
-  // if the total number is odd, the median is the middle number
-  if (arr.length % 2 === 1) {
-    med = arr[mid];
-  }
-  // if the total number is even, the median is the average of the middle two numbers
-  else {
-    med = (arr[mid - 1] + arr[mid]) / 2;
-  }
-  // create a map to store the frequency of each number
-  let map = new Map();
-  // loop through the array and update the map
-  for (let num of arr) {
-    // if the map already has the number, increment its frequency
-    if (map.has(num)) {
-      map.set(num, map.get(num) + 1);
-    }
-    // otherwise, set the frequency to 1
-    else {
-      map.set(num, 1);
-    }
-  }
-  // initialize the maximum frequency and the mode
-  let maxFreq = 0; 
-  // loop through the map and find the number with the highest frequency
-  for (let [num, freq] of map) {
-    // if the frequency is higher than the current maximum, update the mode and the maximum frequency
-    if (freq > maxFreq) {
-      mode = num;
-      maxFreq = freq;
+  // Filter out non-numeric elements and concatenate arrays
+  let numbers = [...arr1, ...arr2, ...arr3];
+
+  // If there's only one number, return it as the average, median, and mode
+  // if (numbers.length === 1) {
+  //   return {
+  //     Average: numbers[0],
+  //     Median: numbers[0],
+  //     Mode: numbers[0],
+  //   };
+  // }
+
+  // Calculate the average
+  const sum = numbers.reduce((a, b) => a + b, 0);
+  const avg = sum / numbers.length;
+
+  // Calculate the median
+  let sortNumbers = numbers.slice().sort((a, b) => a - b);
+  const middle = Math.floor(sortNumbers.length / 2);
+  const median = !(sortNumbers.length % 2 === 0)
+    ? sortNumbers[middle]
+    : (sortNumbers[middle - 1] + sortNumbers[middle]) / 2;
+
+  // Calculate the mode
+  const frequency = {};
+  let maxFrequency = 0;
+  let modes = [];
+
+  for (const number of numbers) {
+    frequency[number] = (frequency[number] || 0) + 1;
+    if (frequency[number] > maxFrequency) {
+      maxFrequency = frequency[number];
+      modes = [number];
+    } else if (frequency[number] === maxFrequency) {
+      modes.push(number);
     }
   }
-  // return the average, median and mode as an object
+
+  let mode = Math.max(...modes);
+
   return {
-    average: avg,
-    median: med,
-    mode: mode
+    Average: Number(avg.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]),
+    Median: median,
+    Mode: mode,
   };
 }
 
+// console.log(moderate([5, 8, 10], [], []));
 
-console.log(moderate([1,8,3],
-  [9,4,1,2,3],
-  [1]));
-
-// module.exports = moderate;
+module.exports = moderate;
