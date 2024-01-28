@@ -1,55 +1,149 @@
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
+//   let display = document.getElementById("display");
+//   let calculateBtn = document.querySelectorAll("button");
+//   display.value = "0";
+//   let displayVal = "";
+//   let calc = 0;
+//   let sum = 0;
+//   let sub = 0;
+//   let mult = 0;
+//   let division = 0;
+//   let fNum = 0;
+//   let sNum = 0;
+
+//   // Funtion For add Element to display
+//   function calculateSum(number) {
+//     sum += number;
+//     return sum;
+//   }
+
+//   // Funtion For add Element to display
+//   function calculateSub(number) {
+//     sub -= number;
+//     return sub;
+//   }
+
+//   // Funtion For add Element to display
+//   function calculateMult(number) {
+//     mult *= number;
+//     return mult;
+//   }
+
+//   // Funtion For add Element to display
+//   function calculateDivision(number) {
+//     if (fNum === 0) fNum = number;
+//     else {
+//       sNum = number;
+//     }
+//     division = fNum / sNum;
+//     console.log(fNum);
+//     return division;
+//   }
+
+//   // Loop over calculator Buttons
+//   for (let i = 0; i < calculateBtn.length; i++) {
+//     const element = calculateBtn[i];
+
+//     // Add addEventListener to all Calc Buttons
+//     calculateBtn[i].addEventListener("click", () => {
+//       // Result
+//       if (element.textContent === "=") {
+//         display.value = calculateSum(Number(displayVal));
+
+//         // Clear
+//       } else if (element.textContent === "C") {
+
+//         display.value = "0";
+//         displayVal = "";
+//         sum = 0;
+
+//         // Sum
+//       } else if (element.textContent === "+") {
+//         calculateSum(Number(displayVal));
+//         displayVal = "";
+
+//         // Mult
+//       } else if (element.textContent === "*") {
+//         calculateMult(Number(displayVal));
+//         displayVal = "";
+
+//         // Sub
+//       } else if (element.textContent === "-") {
+//         calculateSub(Number(displayVal));
+//         displayVal = "";
+
+//         // Division
+//       } else if (element.textContent === "/") {
+//         calculateDivision(Number(displayVal));
+//         displayVal = "";
+
+//         // Default
+//       } else {
+//         displayVal += element.textContent;
+//         // Don't repeat Zero for first number
+//         if (displayVal[0] === "0") {
+//           display.value = "0";
+//           displayVal = "";
+//         } else {
+//           display.value = displayVal;
+//         }
+//       }
+//     });
+//   }
+// });
+document.addEventListener("DOMContentLoaded", function () {
   let display = document.getElementById("display");
-  let calculateBtn = document.querySelectorAll("button");
   display.value = "0";
-  let displayVal = "";
-  let memoriez = [];
-
-  for (let i = 0; i < calculateBtn.length; i++) {
-    const element = calculateBtn[i];
-
-    // Funtion For add Element to display
-    function calculateSum(...calc) {}
-
-    // Add AddEvent listener to all Calc Buttons
-    calculateBtn[i].addEventListener("click", () => {
-      if (element.textContent === "=") {
-      } else if (element.textContent === "C") {
+  let buttons = Array.from(document.querySelectorAll(".buttons button"));
+  let operator = "";
+  let value = "";
+  let result = "";
+  buttons.map((button) => {
+    button.addEventListener("click", (e) => {
+      if (e.target.className === "operator") {
+        operator = e.target.textContent;
+        value = display.value;
+        display.value = "";
+      } else if (e.target.textContent === "C") {
         display.value = "0";
-        displayVal = "";
-      } else if (element.textContent === "+") {
-        memoriez.push(display.value);
-        calculateSum(element);
-      } else {
-        displayVal += element.textContent;
-        if (displayVal[0] === "0") {
-          display.value = "0";
-          displayVal = "";
-        } else {
-          display.value = displayVal;
+        value = "";
+        operator = "";
+        result = "";
+      } else if (e.target.textContent === "=") {
+        switch (operator) {
+          case "+":
+            result = parseFloat(value) + parseFloat(display.value);
+            break;
+          case "-":
+            result = parseFloat(value) - parseFloat(display.value);
+            break;
+          case "*":
+            result = parseFloat(value) * parseFloat(display.value);
+            break;
+          case "/":
+            try {
+              if (display.value === "0") {
+                throw new Error("Error: Division by zero");
+              } else {
+                result = parseFloat(value) / parseFloat(display.value);
+              }
+            } catch (e) {
+              result = "Error";
+            }
+            break;
+          default:
+            result = "Error";
         }
-        console.log(displayVal);
+        display.value = result.toString();
+        value = "";
+        operator = "";
+      } else {
+        if (display.value === "0") {
+          display.value = e.target.textContent;
+        } else {
+          display.value += e.target.textContent;
+        }
       }
     });
-  }
-
-  console.log(memoriez);
+  });
 });
-
-let arrays = [
-  [1, 6, 3, 4, 9],
-  [1, 7, 7, 8, 5],
-  [6, 2, 3, 4, 5],
-  [8, 2, 7, 4, 4],
-  [3, 6, 3, 4, 3],
-];
-
-let calc = 0;
-for (let arr of arrays) {
-  // console.log(arr);
-  for (let i = 0; i < arr.length; i++) {
-    const element = arr[i];
-    // calculateSum(arr[i]);
-  }
-}
-// console.log(calc);
