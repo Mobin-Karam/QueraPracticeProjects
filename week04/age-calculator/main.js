@@ -14,24 +14,41 @@ const initialState = {
 };
 
 dayInput.addEventListener("change", (e) => {
-  // TODO: store input in proper initialState key
+  initialState.day = e.target.value;
 });
 
 monthInput.addEventListener("change", (e) => {
-  // TODO: store input in proper initialState key
+  initialState.month = e.target.value;
 });
 
 yearInput.addEventListener("change", (e) => {
-  // TODO: store input in proper initialState key
+  initialState.year = e.target.value;
 });
 
 const calculateAge = (dateOfBirth) => {
   const { day, month, year } = dateOfBirth;
   const result = [];
 
-  // TODO: calculate year of age, month of age and date of age
-  //  and return result array with this scheme => ['year', 'month', 'day']
-  // your code here...
+  const today = new Date();
+  const birthDate = new Date(year, month - 1, day);
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  let m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+    m += 12;
+  }
+
+  let months = m;
+  let days = today.getDate() - birthDate.getDate();
+  if (days < 0) {
+    months--;
+    days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+  }
+
+  result.push(age.toString(), months.toString(), days.toString());
+
+  return result;
 };
 
 btn.addEventListener("click", () => {
@@ -47,10 +64,6 @@ btn.addEventListener("click", () => {
     monthsResult.textContent = result[1];
     daysResult.textContent = result[2];
   } else {
-    errorContainer.innerHTML = `<p>Input is invalid!</p>`;
-    errorContainer.style.setProperty("display", "block");
-    setTimeout(() => {
-      errorContainer.style.setProperty("display", "none");
-    }, 1500);
+    errorContainer.textContent = "Please enter a valid date.";
   }
 });
