@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: #dbdbdb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.container {
+  width: 50%;
+  min-height: 70%;
+  padding: 40px 60px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  border-bottom-right-radius: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.error {
+  padding: 20px 50px;
+  margin-bottom: 20px;
+  background-color: crimson;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  display: none;
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  color: #716f6f;
+}
+
+.form div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form__date {
+  padding: 8px 10px 8px 5px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  outline: none;
+}
+
+.form__date:focus {
+  border-color: hsl(259, 100%, 65%);
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  /* gap: 30px; */
+}
+
+.submit__line {
+  width: 90%;
+  height: 1.8px;
+  background-color: #dbdbdb;
+}
+
+.submit__btn {
+  width: 80px;
+  height: 80px;
+  background-color: hsl(259, 100%, 65%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit__btn:active {
+  background-color: #000000;
+}
+
+.date__wrapper {
+  font-style: italic;
+  font-weight: 800;
+}
+
+.date {
+  display: flex;
+  font-size: 64px;
+}
+
+.date span {
+  color: hsl(259, 100%, 65%);
+}

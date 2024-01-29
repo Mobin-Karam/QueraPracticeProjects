@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Age Calculator App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div data-id="error" class="error"></div>
+      <div class="form">
+        <div>
+          <label>DAY</label>
+          <input
+            class="form__date"
+            id="dayInput"
+            data-id="dayInput"
+            type="number"
+            max="31"
+            min="01"
+            placeholder="DD"
+          />
+        </div>
+        <div>
+          <label>MONTH</label>
+          <input
+            class="form__date"
+            id="monthInput"
+            data-id="monthInput"
+            type="number"
+            max="12"
+            min="01"
+            placeholder="MM"
+          />
+        </div>
+        <div>
+          <label>YEAR</label>
+          <input
+            class="form__date"
+            id="yearInput"
+            data-id="yearInput"
+            type="number"
+            max="2024"
+            min="1950"
+            placeholder="YYYY"
+          />
+        </div>
+      </div>
+
+      <div class="submit">
+        <div class="submit__line"></div>
+        <div data-id="submit" class="submit__btn" id="submit__btn">
+          <img src="./assets/icon-arrow.svg" alt="submit button" />
+        </div>
+      </div>
+
+      <div class="date__wrapper">
+        <div class="date">
+          <span data-id="yearResult" id="date__years--result">--</span>
+          <p>years</p>
+        </div>
+        <div class="date">
+          <span data-id="monthResult" id="date__months--result">--</span>
+          <p>months</p>
+        </div>
+        <div class="date">
+          <span data-id="dayResult" id="date__days--result">--</span>
+          <p>days</p>
+        </div>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
+
+<!--
+
+- Purple: hsl(259, 100%, 65%)
+- Light red: hsl(0, 100%, 67%)
+
+
+- White: #ffffff
+- Off white: 	#f0f0f0
+- Light grey: #dbdbdb
+- Smokey grey: #716f6f
+- Off black: 	#141414
+
+- Font size (inputs): 32px
+
+- Family: [Poppins](https://fonts.google.com/specimen/Poppins)
+- Weights: 400i, 700, 800i -->
