@@ -40,23 +40,13 @@ const App = () => {
     },
   ]);
 
-  let checked;
-  let listSelected = [];
-  // document.addEventListener("DOMContentLoaded", () => {
+  let id;
+  let checked = false;
 
-  // });
-  // console.log(checked);
-
-  function checkboxHandler(checked, id) {
-    let value = document.querySelectorAll("input").value;
-    let values = [...value];
-    if (checked) console.log("click");
-    if (checked) {
-      console.log(id);
-      console.log(values);
-    } else {
-      console.log(listSelected);
-    }
+  function checkboxHandler(e) {
+    people.map((p) => {
+      if (p.id === Number(e.target.value)) return console.log(e.target.value);
+    });
   }
 
   return (
@@ -69,6 +59,7 @@ const App = () => {
             return (
               <Contact
                 key={person.id}
+                id={id}
                 firstName={person.first_name}
                 lastName={person.last_name}
                 email={person.email}

@@ -8,7 +8,6 @@ const Contact = ({
   city,
   checkboxHandler,
   checked,
-  // onClickHandle,
 }) => {
   
   return (
