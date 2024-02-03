@@ -8,7 +8,9 @@ const Contact = ({
   city,
   checkboxHandler,
   checked,
+  // onClickHandle,
 }) => {
+  
   return (
     <div className="contacts-list__item">
       <div>
@@ -25,8 +27,8 @@ const Contact = ({
         <input
           type="checkbox"
           value={id}
-          onChange={checkboxHandler}
           checked={checked}
+          onChange={checkboxHandler}
         />
       </div>
     </div>

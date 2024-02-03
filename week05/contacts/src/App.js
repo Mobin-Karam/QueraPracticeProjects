@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Contact from "./components/Contact";
+import Contact from "./components/Contact/Contact";
 
 const App = () => {
   const [people, setPeople] = useState([
@@ -40,6 +40,25 @@ const App = () => {
     },
   ]);
 
+  let checked;
+  let listSelected = [];
+  // document.addEventListener("DOMContentLoaded", () => {
+
+  // });
+  // console.log(checked);
+
+  function checkboxHandler(checked, id) {
+    let value = document.querySelectorAll("input").value;
+    let values = [...value];
+    if (checked) console.log("click");
+    if (checked) {
+      console.log(id);
+      console.log(values);
+    } else {
+      console.log(listSelected);
+    }
+  }
+
   return (
     <div data-testid="app" className="app">
       {/* ----------------------------------left side------------------------------------- */}
@@ -49,7 +68,13 @@ const App = () => {
           {people.map((person) => {
             return (
               <Contact
-              // add needed props
+                key={person.id}
+                firstName={person.first_name}
+                lastName={person.last_name}
+                email={person.email}
+                city={person.city}
+                checked={checked}
+                checkboxHandler={checkboxHandler}
               />
             );
           })}
