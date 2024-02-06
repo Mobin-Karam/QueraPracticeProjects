@@ -24,13 +24,13 @@ function App() {
   // TODO handleChangeValues function
   // Next Step
   function nextStep() {
-    setStep(step + 1);
-    if (step === 2) setStep((step = 2));
+    setStep((step + 1) % 3);
+    // if (step === 2) setStep((step = 2));
   }
   // Prev Step
   function prevStep() {
-    setStep(step - 1);
-    if (step === 0) setStep((step = 0));
+    setStep((step - 1 + 3) % 3);
+    // if (step === 0) setStep((step = 0));
   }
 
   // Save Value
@@ -84,7 +84,12 @@ function App() {
               lastNameHandle={lastNameHandle}
             />
           ) : step === 1 ? (
-            <Details genderHandle={genderHandle} phoneHandle={phoneHandle} phone={phone} gender={gender} />
+            <Details
+              genderHandle={genderHandle}
+              phoneHandle={phoneHandle}
+              phone={phone}
+              gender={gender}
+            />
           ) : (
             <Summary formValues={formValues} />
           )}
