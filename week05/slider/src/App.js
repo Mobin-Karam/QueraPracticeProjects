@@ -8,12 +8,16 @@ function App() {
 
   // Prev Article
   function prevArticle() {
-    setCounter(((counter - 1) + data.length) % data.length);
+    setCounter((counter - 1 + data.length) % data.length);
+    // setCounter(counter - 1);
+    // if (counter <= 0) setCounter((counter = 3));
   }
 
   // Next Article
   function nextArticle() {
     setCounter((counter + 1) % data.length);
+    // setCounter(counter + 1);
+    // if (counter >= 3) setCounter((counter = 0));
   }
 
   // activeSlide , lastSlide , nextSlide
@@ -28,7 +32,7 @@ function App() {
       </div>
       <div className="section-center">
         {data.map((person, personIndex) => {
-          // Assign the classes based on the counter value
+          //  check to see if the current index is equal to the counter state
           let position = "nextSlide";
           if (personIndex === counter) {
             position = "activeSlide";
@@ -42,7 +46,7 @@ function App() {
 
           // Return the slide element with the assigned class
           return (
-            <article className={position} key={person.id}>
+            <article key={person.id} className={position}>
               <img
                 src={person.image}
                 alt={person.name}
