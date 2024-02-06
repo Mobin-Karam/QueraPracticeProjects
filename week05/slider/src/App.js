@@ -6,38 +6,17 @@ import { useState } from "react";
 function App() {
   let [counter, setCounter] = useState(0);
 
-  setTimeout(() => {
-    document.querySelector("article").classList.remove("article");
-    document.querySelector("article").classList.add("activeSlide");
-  }, 1);
-
   // Prev Article
-  function prevArticle(event) {
-    document.querySelector("article").classList.add("nextSlide");
-    console.log("Prev");
-    setTimeout(() => {
-      setCounter(counter - 1);
-      if (counter <= 0) setCounter((counter = 3));
-    }, 300);
-    setInterval(() => {
-      document.querySelector("article").classList.remove("article");
-      document.querySelector("article").classList.add("activeSlide");
-    }, 300);
+  function prevArticle() {
+    setCounter(((counter - 1) + data.length) % data.length);
   }
 
   // Next Article
-  function nextArticle(event) {
-    console.log("Next");
-    document.querySelector("article").classList.add("lastSlide");
-    setTimeout(() => {
-      setCounter(counter + 1);
-      if (counter >= 3) setCounter((counter = 0));
-    }, 300);
-    setInterval(() => {
-      document.querySelector("article").classList.remove("article");
-      document.querySelector("article").classList.add("activeSlide");
-    }, 300);
+  function nextArticle() {
+    setCounter((counter + 1) % data.length);
   }
+
+  // activeSlide , lastSlide , nextSlide
 
   console.log(counter);
   return (
@@ -48,31 +27,34 @@ function App() {
         </h2>
       </div>
       <div className="section-center">
-        {counter === 0 ? (
-          <article key={data[0].id} className="article">
-            <img
-              className="person-img"
-              src={data[0].image}
-              alt={data[0].name}
-            />
-            <h4>{data[0].name}</h4>
-            <p className="title">{data[0].title}</p>
-            <p className="text">{data[0].quote}</p>
-            <FaQuoteRight className="icon" />
-          </article>
-        ) : (
-          <article key={data[counter].id} className="article">
-            <img
-              className="person-img"
-              src={data[counter].image}
-              alt={data[counter].name}
-            />
-            <h4>{data[counter].name}</h4>
-            <p className="title">{data[counter].title}</p>
-            <p className="text">{data[counter].quote}</p>
-            <FaQuoteRight className="icon" />
-          </article>
-        )}
+        {data.map((person, personIndex) => {
+          // Assign the classes based on the counter value
+          let position = "nextSlide";
+          if (personIndex === counter) {
+            position = "activeSlide";
+          }
+          if (
+            personIndex === counter - 1 ||
+            (counter === 0 && personIndex === data.length - 1)
+          ) {
+            position = "lastSlide";
+          }
+
+          // Return the slide element with the assigned class
+          return (
+            <article className={position} key={person.id}>
+              <img
+                src={person.image}
+                alt={person.name}
+                className="person-img"
+              />
+              <h4>{person.name}</h4>
+              <p className="title">{person.title}</p>
+              <p className="text">{person.quote}</p>
+              <FaQuoteRight className="icon" />
+            </article>
+          );
+        })}
         <button className="prev" aria-label="prev" onClick={prevArticle}>
           <FiChevronLeft />
         </button>
