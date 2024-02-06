@@ -52,8 +52,6 @@ const App = () => {
           : person
       )
     );
-    console.log(people);
-    console.log("click");
   }
 
   function handleDeletePerson() {
