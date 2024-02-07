@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import Message from '../Message/Message';
-import './MessageList.css';
+import React, { useEffect, useRef } from "react";
+import Message from "../Message/Message";
+import "./MessageList.css";
 
 function MessageList({ messages }) {
   const messageContainer = useRef(null);
